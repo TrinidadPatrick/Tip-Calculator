@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="./script.js" defer ></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+<title>Document</title>
+</head>
+<style>
+    *{
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Space Mono', monospace;
+    }
+</style>
+<body class="bg-LightGrayishCyan h-screen flex flex-column items-center justify-center">
+
+    <div class="container h-full md:h-auto p-6 w-full sm:w-full md:w-3/4 xl:max-w-3xl bg-white grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1 gap-10 rounded-xl">
+        <!-- Left container -->
+        <div class="w-full lg:w-full flex flex-col">
+        <!-- Bill Container -->
+        <div class="flex flex-col mt-6 md:mt-6">
+            <div id="parentBill" class="flex justify-between mb-2"><p class="text-darkGrayishCyan text-sm">Bill</p><p id="errorMessage1" class="invisible text-red-700 text-xs">Can't be zero</p></div>
+            <div class="relative flex w-full items-center justify-between">
+            <h2 class="mr-2 absolute text-xl left-1 text-LightGrayishCyan">$</h2>
+            <input onchange="setBill()" id="bill" class="bg-VeryLightGrayishCyan w-full p-2 pl-5 text-veryDarkCyan rounded-sm placeholder:text-end placeholder:text-LightGrayishCyan placeholder:text-xl" placeholder="0" type="number">   
+            </div>
+            
+        </div>
+
+        <!-- Tip Selection Container -->
+        <div class="w-full mt-10 md:mt-3">
+            <!-- Header -->
+            <h3 class="text-darkGrayishCyan mb-2">Select Tip %</h3>
+
+            <!-- Buttons -->
+            <div class="grid gap-3 grid-cols-3 grid-rows-2">
+
+                <button onclick="setTip(this)" value="5" id=5 class="bg-veryDarkCyan py-1.5 rounded-md text-2xlxl text-white hover:bg-strongCyan">5%</button>
+                <button onclick="setTip(this)" value="10" id=10 class="bg-veryDarkCyan py-1.5 rounded-md text-xl text-white hover:bg-strongCyan">10%</button>
+                <button onclick="setTip(this)" value="15" id=15 class="bg-veryDarkCyan py-1.5 rounded-md text-xl text-white hover:bg-strongCyan">15%</button>
+                <button onclick="setTip(this)" value="25" id=25 class="bg-veryDarkCyan py-1.5 rounded-md text-xl text-white hover:bg-strongCyan">25%</button>
+                <button onclick="setTip(this)" value="50" id=50 class="bg-veryDarkCyan py-1.5 rounded-md text-xl text-white hover:bg-strongCyan">50%</button>
+                <input onchange="setTip(this)" required type="number" id="custom" class="bg-VeryLightGrayishCyan py-1.5 rounded-md text-xl text-darkGrayishCyan px-4" placeholder="Custom"></input>
+            </div>
+
+            <!-- People Container -->
+            <div class="flex flex-col mt-10">
+                <div id="parentPeople" class="flex justify-between mb-2"><p class="text-darkGrayishCyan text-sm">Number of People</p><p id="errorMessage2" class="invisible text-red-700 text-xs">Can't be zero</p></div>
+                <div class="relative flex w-full items-center justify-between">
+                <i class="ri-user-fill absolute left-1 text-LightGrayishCyan"></i>
+                <!-- <h2 class="mr-2 absolute right-0 text-LlghtGrayishCyan">0</h2> -->
+                <input id="people" class="bg-VeryLightGrayishCyan w-full p-2 pl-5 text-veryDarkCyan rounded-sm placeholder:text-end placeholder:text-LightGrayishCyan placeholder:text-xl " placeholder="0" type="number">   
+                </div>
+                
+            </div>
+        </div>
+
+        </div>
+
+        <!-- Right Container -->
+
+        <div class="w-full flex flex-col justify-between p-7 rounded-xl bg-veryDarkCyan">
+
+            <div class="grid gap-8">
+            <div class="container grid grid-cols-2">
+                <div class="w-full grid-cols-1 grid-rows-2">
+                    <h4 class="text-white text-sm">Tip Amount</h4>
+                    <p class="text-xs text-darkGrayishCyan">/ person</p>
+                </div>
+                <div class=" h-full overflow-x-scroll ">
+                   <h1 id="tipPerPerson" class="w-full text-strongCyan text-3xl lg:text-4xl text-center">$0.00</h1> 
+                </div>
+                
+            </div>
+
+            <div class="container grid grid-cols-2">
+                <div class="w-full grid-cols-1 grid-rows-2">
+                    <h4 class="text-white text-sm">Total</h4>
+                    <p class="text-xs text-darkGrayishCyan">/ person</p>
+                </div>
+                <div class=" h-full overflow-x-scroll ">
+                    <h1 id="totalPerPerson" class="w-full text-strongCyan text-3xl lg:text-4xl text-center">$0.00</h1>
+                </div>
+                
+            </div>
+        </div>
+
+        <button onclick="resetCalculator()" id="reset" class="w-full bg-strongCyan disabled:bg-cyanShade py-2 rounded-md text-darkGrayishCyan">RESET</button>
+        </div>
+        
+    </div>
+
+    
+    
+</body>
+</html>
