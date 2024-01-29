@@ -78,7 +78,6 @@
     "yaml": "^2.3.1"
   },
   "scripts": {
-    "build": "npx tailwindcss -i ./input.css -o ./css/main.css",
     "watch": "npx tailwindcss -i ./input.css -o ./css/main.css --watch"
   },
   "keywords": [],
